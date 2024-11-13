@@ -6,6 +6,9 @@ app = FastAPI(title="FastAPI Stepik Courses")
 
 
 
+#@app.get("/")
+#async def root():
+#    return {"message": "Beni bitir"}
 @app.get("/get_hotels")
 def get_hotels():
     return "5 Yildizli Antalya oteli"
