@@ -26,6 +26,7 @@ TokenExpiredException = HTTPException(
     detail="Токен истек"
 )
 
+
 TokenAbsentException = HTTPException(
     status_code=status.HTTP_401_UNAUTHORIZED,
     detail="Токен отсуствует"
@@ -41,4 +42,29 @@ IncorrectTokenFormatException = HTTPException(
 RoomCannotBeBooked = HTTPException(
     status_code=status.HTTP_409_CONFLICT,
     detail="Не осталось свободных номеров"
+)
+
+HotelAlreadyExistsException = HTTPException(
+    status_code=status.HTTP_409_CONFLICT,
+    detail="Отель уже существует"
+)
+
+HotelIsNotPresentException = HTTPException(
+    status_code=status.HTTP_404_NOT_FOUND,
+    detail="Hotel отсуствует"
+)
+
+RoomIsNotPresentException = HTTPException(
+    status_code=status.HTTP_404_NOT_FOUND,
+    detail="Room отсуствует"
+)
+
+RoomAlreadyExistsException = HTTPException(
+    status_code=status.HTTP_409_CONFLICT,
+    detail="Room уже существует"
+)
+
+RoomCannotHotels = HTTPException(
+    status_code=status.HTTP_409_CONFLICT,
+    detail="Не осталось комнаты Отеля"
 )

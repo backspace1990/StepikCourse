@@ -1,5 +1,5 @@
 from app.database import async_session_maker
-from sqlalchemy import select, insert
+from sqlalchemy import select, insert, delete
 
 
 
@@ -44,7 +44,7 @@ class BaseDAO:
             return result.scalar_one_or_none()
 
     @classmethod
-    async def find_all_byfilt(cls, **filter_by):
+    async def find_all_by_filter(cls, **filter_by):
         async with async_session_maker() as session:
             query = select(cls.model).filter_by(**filter_by)
             result = await session.execute(query)
@@ -56,3 +56,10 @@ class BaseDAO:
             query = insert(cls.model).values(data)
             await session.execute(query)
             await session.commit()
+            return 1
+
+    
+            
+
+            
+            

@@ -4,7 +4,7 @@ from sqlalchemy import select, func, and_, or_, insert
 
 from sqlalchemy import select
 from app.bookings.models import Bookings
-from app.hotels.rooms.models import Rooms
+from app.hotels.models import Rooms
 from datetime import date
 
 
@@ -82,4 +82,4 @@ class BookingDAO(BaseDAO):
                 await session.commit()
                 return new_booking.scalar()
             else:
-                return 
+                return None
